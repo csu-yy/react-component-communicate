@@ -35,6 +35,16 @@ constructor(props,context){
 }
 ...
 ````
+ - 如果一个组件内定义了```contextTypes```，下面的生命周期方法会接收一个额外参数，就是```context```对象：
+1. constructor(props, context)
+2. componentWillReceiveProps(nextProps, nextContext)
+3. shouldComponentUpdate(nextProps, nextState, nextContext)
+4. componentWillUpdate(nextProps, nextState, nextContext)   
+
+简单来说就是：
+1. 通过给父组件（context的生产者）添加```childContextTypes```和```getChildContext```，React自动向下传递信息，子树上的所有组件可以通过定义```contextTypes```来访问context。
+2. 如果 contextTypes 没有被定义，context 就会是个空对象。
+
 
 ### 改变context对象
 我们不应该也不能直接改变 context 对象中的属性，要想改变 context 对象，只有让其和父组件的 state 或者 props 进行关联，在父组件的 state 或 props 变化时，会自动调用 getChildContext 方法，返回新的 context 对象，而后子组件进行相应的渲染。

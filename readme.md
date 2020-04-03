@@ -36,10 +36,10 @@ constructor(props,context){
 ...
 ````
  - 如果一个组件内定义了```contextTypes```，下面的生命周期方法会接收一个额外参数，就是```context```对象：
-1. constructor(props, context)
-2. componentWillReceiveProps(nextProps, nextContext)
-3. shouldComponentUpdate(nextProps, nextState, nextContext)
-4. componentWillUpdate(nextProps, nextState, nextContext)   
+1. ```constructor(props, context)```
+2. ```componentWillReceiveProps(nextProps, nextContext)```
+3. ```shouldComponentUpdate(nextProps, nextState, nextContext)```
+4. ```componentWillUpdate(nextProps, nextState, nextContext)```   
 
 简单来说就是：
 1. 通过给父组件（context的生产者）添加```childContextTypes```和```getChildContext```，React自动向下传递信息，子树上的所有组件可以通过定义```contextTypes```来访问context。
